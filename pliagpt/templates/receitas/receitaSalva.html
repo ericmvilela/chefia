@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Receita{% endblock %}
+
+{% block main %}
+    <div class="container">
+	    <h2>{{ titulo }}</h2>
+
+        <div class="passos ingredientes">
+            {% for ingrediente in ingredientes %}
+            	<p>{{ ingrediente }}</p>
+            {% endfor %}
+        </div>
+        <div class="passos preparo">
+            {% for info in preparo %}
+            	<p>{{ info }}</p>
+            {% endfor %}
+
+        </div>
+
+        <div>
+            <button class="buttons" id="share-button">Compartilhar</button>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-container">
+            <img class="qrcode" src="data:image/png;base64, {{ qrcode }}">
+            <button class="buttons" id="copy-button" data-value="{{ link }}">Copiar Link</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/compartilhar.js' %}"></script>
+{% endblock %}

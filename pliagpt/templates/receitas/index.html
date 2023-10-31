@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}ChefIA{% endblock %}
+
+{% block main %}
+	<div class="container">
+        <h2>Selecione os ingredientes disponíveis e receba uma receita</h2>
+        <form method="post" action="{% url 'pliagpt:receita' %}" class="passos inputs">
+            {% csrf_token %}
+            <div class="container-inputs">
+                <input type="text" placeholder="Digite um Ingrediente" class="input-ingrediente" name="ingrediente">
+                <input type="text" placeholder="Digite um Ingrediente" class="input-ingrediente" name="ingrediente">
+            </div>
+            <div class="container-buttons">
+                <button type="button" class="buttons button-add">+</button>
+                <button type="submit" class="buttons">Gerar Receita</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+	<script src="{% static 'js/buscaReceita.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Receita{% endblock %}
+
+{% block main %}
+    <div style="display: none;">
+        {% for ingrediente in ingredientes %}
+            <input value="{{ ingrediente }}" type="hidden" name="ingrediente">
+        {% endfor %}
+    </div>
+
+    <div class="container">
+	    <h2>Gerando Receita...</h2>
+
+        <div class="loading">
+            <span></span><span></span><span></span>
+        </div>
+
+        <div class="passos ingredientes"></div>
+        <div class="passos preparo"></div>
+        <div>
+            <button class="buttons" id="share-button">Compartilhar</button>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-container">
+            <img class="qrcode">
+            <button class="buttons" id="copy-button">Copiar Link</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/compartilhar.js' %}"></script>
+	<script src="{% static 'js/gerarReceita.js' %}"></script>
+{% endblock %}

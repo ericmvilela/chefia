@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --backgroud: #DEE4E7;
+    --backgroudModal: #BBB;
+    --color: #222;
+    --backgroudNav: #bbb
+}
+
+.dark-theme {
+    --backgroud: #222;
+    --backgroudModal: #333;
+    --color: #fff;
+    --backgroudNav: #555
+}
+
+body {
+    background-color: var(--backgroud);
+    color: var(--color);
+    font-family: Roboto, 'SansSerif';
+    height: 100%;
+}
+
+nav {
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    align-items: center;
+    background-color: var(--backgroudNav);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color);
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-family: 'Agbalumo', 'SansSerif';
+    font-size: 28px;
+}
+
+span {
+    color: orange;
+}
+
+#theme-toggle {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.container {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.passos {
+    margin-top: 10px;
+    width: 90%;
+    padding: 10px;
+}
+
+.passos > p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.passos > p:nth-child(1) {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 500px;
+}
+
+.input-ingrediente {
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    border: 2px solid orange;
+    padding: 0 10px;
+    margin: 10px 0;
+}
+
+.container-inputs {
+    width: 100%;
+}
+
+.container-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons {
+    width: 30%;
+    min-width: 130px;
+    border-radius: 10px;
+    border: 1px solid black;
+    height: 25px;
+    font-size: 14px;
+    background-color: orange;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.buttons:hover {
+    background-color: #c50;
+}
+
+.buttons:active {
+    background-color: darkred;
+}
+
+h2 {
+    text-align: center;
+}
+
+.loading span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: orange;
+    margin: 8px;
+    animation: bounce .6s cubic-bezier(0.6, 0.1, 1, 0.4);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.loading span:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.loading span:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.loading span:nth-child(3) {
+    animation-delay: .3s;
+}
+
+@keyframes bounce {
+    to {
+        transform: translateY(50px);
+    }
+}
+
+.modal {
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 10;
+}
+
+.modal-container {
+    background-color: var(--backgroudModal);
+    width: 40%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
+}
+
+.qrcode {
+    width: 80%;
+    max-width: 250px;
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    .modal-container {
+        width: 80%;
+    }
+}
