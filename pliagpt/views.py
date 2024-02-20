@@ -39,8 +39,10 @@ def gerarReceita(request):
 
     busca = f'eu tenho {", ".join(ingredientes[0].split(","))}, me de uma receita que eu possa fazer usando esses ingredientes, separe em titulo, ingredientes e modo de preparo'
     print(busca)
+    
+    # Atualizar Token
     headers = {
-        'Authorization': 'Bearer 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'
+        'Authorization': 'token'
     }
 
     data = {
